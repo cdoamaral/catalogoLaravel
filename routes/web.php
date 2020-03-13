@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view ('index');
 });
+
+#################################
+##### CRUD DE CATEGORIAS ##### 
+#################################
+
+// Ahora es peticion y controlador
+// Con el @metodo, de la peticion va al controlador, y del controlador dice a que metodo ir
+// El @metodo es el action
+Route::get('/adminCategorias', 'CategoriaController@index');
