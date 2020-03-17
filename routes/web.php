@@ -24,3 +24,7 @@ Route::get('/', function () {
 // Con el @metodo, de la peticion va al controlador, y del controlador dice a que metodo ir
 // El @metodo es el action
 Route::get('/adminCategorias', 'CategoriaController@index');
+
+Route::get('/adminMarcas', 'MarcaController@index');
+
+Route::get('adminUsuarios', 'UsuarioController@index');
