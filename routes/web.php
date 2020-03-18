@@ -25,6 +25,23 @@ Route::get('/', function () {
 // El @metodo es el action
 Route::get('/adminCategorias', 'CategoriaController@index');
 
+
+
+#################################
+##### CRUD DE MARCAS ##### 
+#################################
 Route::get('/adminMarcas', 'MarcaController@index');
 
-Route::get('adminUsuarios', 'UsuarioController@index');
+
+
+
+#################################
+##### CRUD DE USUARIOS ##### 
+#################################
+Route::get('/adminUsuarios', 'UsuarioController@index');
+
+
+#################################
+##### CRUD DE PRODUCTOS ##### 
+#################################
+Route::get('/adminProductos', 'ProductoController@index');

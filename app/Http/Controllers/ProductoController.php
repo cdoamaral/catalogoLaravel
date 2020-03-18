@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Categoria;
+use App\Producto;
 use Illuminate\Http\Request;
 
-
-class CategoriaController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,10 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //$categorias, es una variable por eso va en minuscula
-        // Le pido al modelo Categoria que se encarga de interactuar con el Controlador
-        $categorias = Categoria::all();
-        //en view va sin barra porque no es una peticion
-        return view('adminCategorias',['categorias'=>$categorias]);
+        // el ::with, es un metodo que fue creado en el modelo Producto. Hay que tener cuidado porque va entre comillas - como un string -
+        // Al traer un metodo de eloquent, del model al traer todo los items, se cambia el all() por get();
+        $productos = Producto::with('getMarca', 'getCategoria')->get();
+        return view('adminProductos', ['productos' => $productos]);
     }
 
     /**

@@ -15,7 +15,8 @@ class MarcaController extends Controller
     public function index()
     {
         
-        $marcas = Marca::all();
+        //$marcas = Marca::all();
+        $marcas = Marca::paginate(7);
         //en view va sin barra porque no es una peticion
         return view('adminMarcas',['marcas'=>$marcas]);        
     }
