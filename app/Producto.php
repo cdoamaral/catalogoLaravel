@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
+	protected $primaryKey = 'idProducto';
+	public $timestamps = false;
+
 	## Como se crean las relaciones de tablas con Eloquent
 	/* 
 	public function relTabla(){
@@ -20,7 +23,7 @@ class Producto extends Model
 	*/
 
 
-	## relacion a tabla marcas
+	## relacion a tabla marcas // Estos datos son para TRAER 
 	public function getMarca()
 	{
 		return $this->belongsTo( 'App\Marca', 'idMarca', 'idMarca'  );
@@ -34,6 +37,7 @@ class Producto extends Model
 	}
 
 
+	
 
 
 

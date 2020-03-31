@@ -28,7 +28,8 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('formAgregarMarca');
     }
 
     /**
@@ -39,7 +40,30 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Capturamos datos enviados por el form
+        //$mkNombre = $_POST['mkNombre'];
+
+        $mkNombre = $request->input('mkNombre');
+
+        ### validacion por metodo validate
+        // entre corchetes la regla es 'campos: el que voy a validar ' => reglas: que caracteristicas va a tener
+        // el $request es todo lo relacionado con el formulario
+        $validacion = $request->validate(
+            [
+                'mkNombre' => 'required|min:3|max:50'
+            //    'imagen'=>'required|image|max:2048', // si quisieramos validar imagenes
+            //    'archivo'=>'file|max:1500' // validacion de un archivo
+            ]
+        );
+
+
+        $Marca = new Marca;
+        $Marca->mkNombre = $mkNombre;
+        $Marca->save();
+
+        return redirect('/adminMarcas')->with('mensaje', 'Marca: '.$mkNombre.' agregada correctamente' );
+
+
     }
 
     /**

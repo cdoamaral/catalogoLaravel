@@ -41,7 +41,7 @@
 					<td> {{$producto->prdStock}} </td>
 					<td> <img src="productos/{{$producto->prdImagen}}" class="img-thumbnail"> </td>
 					<td>
-						<a href="/modificarProducto/{{$producto->idProducto}}" class="btn btn-outline-secondary"> Modificar </a>
+						<a href="/modificarProducto/{{ $producto -> idProducto }}" class="btn btn-outline-secondary"> Modificar </a>
 					</td>
 					<td>
 					  	<a href="/eliminarProducto/{{$producto->idProducto}}" class="btn btn-outline-secondary eliminar">Eliminar</a>

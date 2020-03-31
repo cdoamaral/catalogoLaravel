@@ -32,6 +32,11 @@ Route::get('/adminCategorias', 'CategoriaController@index');
 #################################
 Route::get('/adminMarcas', 'MarcaController@index');
 
+// Manejar peticion para agregar marca
+Route::get('/agregarMarca', 'MarcaController@create');
+
+//Manejar la peticion del formAgregarMarca
+Route::post('agregarMarca', 'MarcaController@store');
 
 
 
@@ -45,3 +50,10 @@ Route::get('/adminUsuarios', 'UsuarioController@index');
 ##### CRUD DE PRODUCTOS ##### 
 #################################
 Route::get('/adminProductos', 'ProductoController@index');
+
+// Manejar peticion para agregar producto
+Route::get('/agregarProducto', 'ProductoController@create' );
+
+Route::post('/agregarProducto','ProductoController@store');
+
+Route::get('/modificarProducto/{idProducto}', 'ProductoController@edit');
